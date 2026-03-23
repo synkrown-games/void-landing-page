@@ -112,8 +112,8 @@ const ABOUT_PARAGRAPHS = [
    ============================================================ */
 const SHADER_CONFIG = {
   baseSpeed: 0.08,   /* overall animation speed                        */
-  scrollInfluence: 0.054,  /* lerp rate for scroll drift                     */
-  mouseInfluence: 0.79,   /* how strongly the mouse warps the fluid (0–1)   */
+  scrollInfluence: 0.154,  /* lerp rate for scroll drift                     */
+  mouseInfluence: 0.89,   /* how strongly the mouse warps the fluid (0–1)   */
   mouseLerp: 0.06,   /* how quickly the shader mouse tracks the cursor */
   colorA: [0.01, 0.00, 0.05],
   colorB: [0.20, 0.03, 0.52],
@@ -823,7 +823,7 @@ const FRAG = `
     vec2 p = (uv - 0.5) * vec2(aspect, 1.0);
 
     float t = uTime;
-    float scrollDrift = uScroll * 0.00028;
+    float scrollDrift = -uScroll * 0.00028;
 
     /* Mouse in same aspect-corrected space as p */
     vec2 mouseP = (uMouse - 0.5) * vec2(aspect, 1.0);
@@ -832,7 +832,7 @@ const FRAG = `
     vec2 ripple = waterRipple(p, mouseP, t, uMouseInfl * 0.18);
 
     /* Nebula layers with ripple warp baked in */
-    vec2 p1 = p * 1.5 + ripple + vec2(sin(t*0.11)*0.07, t*0.035+scrollDrift);
+    vec2 p1 = p * 1.5 + ripple + vec2(sin(t*0.11)*0.07, t*0.025+scrollDrift);
     float n1 = nebula(p1);
 
     vec2 p2 = p * 2.6 + ripple * 1.4 + vec2(cos(t*0.08+1.1)*0.05, t*0.055+scrollDrift*1.6);
