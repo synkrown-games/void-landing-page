@@ -24,6 +24,8 @@
 
 const SECTIONS = [
   { id: 'hero', label: 'Home' },
+  { id: 'screenshots', label: 'Gallery' },
+  { id: 'videos',      label: 'Videos'  },
   { id: 'about', label: 'About' },
   { id: 'features', label: 'Features' },
   { id: 'roadmap', label: 'Roadmap' },
@@ -59,6 +61,41 @@ const EXAMPLE_GAMES = [
   { title: 'Creature Battleground', desc: 'Set up your creature battleground and watch them fight!', thumb: '', url: '#' },
   { title: 'Tower Defense', desc: "Simple tower defense game with 100 waves.", thumb: '', url: '#' },
   { title: 'Vehicle Controller', desc: 'Top-down vehicle controller with tire marks and gear changes.', thumb: '', url: '#' },
+];
+
+const SCREENSHOTS = [
+  { src: 'screenshots/gta.png', caption: 'Top-Down Vehicle Physics' },
+  { src: 'screenshots/platformer.png', caption: 'Platformer with Procedural Background' },
+  { src: 'screenshots/tower-defense.png', caption: 'Tower Defense game play' },
+  { src: 'screenshots/scene-editor.png', caption: 'Scene Editor: Where all the magic happens' },
+  { src: 'screenshots/prefab-editor.png', caption: 'Prefab Editor: What is a Game Object without behavior Modules?' },
+  { src: 'screenshots/module-selector.png', caption: 'Module Selector: Choose your modules with ease' },
+  { src: 'screenshots/script-editor.png', caption: 'Script Editor: Gotta be able to code in a game engine' },
+  { src: 'screenshots/animation-tool-1.png', caption: 'Animation Tool: With skeletal animation capabilities' },
+  { src: 'screenshots/animation-tool-2.png', caption: 'Animation Tool: Generate particle animations' },
+  { src: 'screenshots/animation-tool-3.png', caption: 'Animation Tool: Save as sprite sheet' },
+  { src: 'screenshots/asset-manager.png', caption: 'Asset Manager: Have some Modules or Prefabs you wish to reuse in another project?' },
+  { src: 'screenshots/audio-editor.png', caption: 'Audio Editor: Trim, use advanced effects and transform your audio files right in VOID' },
+  { src: 'screenshots/audio-daw.png', caption: 'Audio DAW: Digital Audio Workstation for generating music or sound effects using a node-graph system' },
+  { src: 'screenshots/github-control.png', caption: 'GitHub Version Control: Push and Pull your project repos inside VOID' },
+  { src: 'screenshots/themes.png', caption: 'Theme Selector: Set the theme to a color that inspires you the most' },
+  { src: 'screenshots/documentation.png', caption: 'Documentation: All the information you may need for the VOID API, right at your finger tips' },
+  { src: 'screenshots/node-module-builder.png', caption: 'Node Module Builder: Create Modules using the extensive VOID API, without having to code' },
+  // Add more: { src: 'path/to/image.png', caption: 'Your caption' },
+];
+
+const VIDEOS = [
+  { id: 'PX2V1kBLpSQ', title: 'Void Showcase', desc: 'A quick intro to the editor' },
+  { id: 'FB-jk0wkVBc', title: 'Scene Editor', desc: 'A short tutorial showing off the Scene Editor' },
+  { id: 'I-bSEe_dcLg', title: 'V-Puppet Animator', desc: 'Showing the skeletal VPuppet Animator in action' },
+  { id: 'MCwZAFrxVqg', title: 'Text Based Story Adventure', desc: '1 Module to create a Text Based Story' },
+  { id: 'uC2keXJjug0', title: 'Minimap', desc: 'Showing how to implement a Minimap into your game' },
+  { id: 'HbHb-6D5aLc', title: 'Intro Text Scroller', desc: 'Add intro text scrolling to the start of your game, or in between scenes. Tell a story!' },
+  { id: 'QfT-1CklVnk', title: 'Intro Text Scroller', desc: 'A tutorial for editing the Tower Defense template to make a Tower Defense game' },
+  { id: 'umeabL10mZo', title: 'GitHub Version Control', desc: 'Push and Pull your project to/from GitHub at will using your own API key' },
+  { id: 'oG9d6UqXkgQ', title: 'GTA 2 Type Vehicle Physics', desc: 'Top-Down vehicle physics with tire marks and gear changes, inspired by GTA 2' },
+  // Add more: { id: 'YOUTUBE_VIDEO_ID', title: 'Title', desc: 'Description' },
+  // The id is the part after ?v= in the YouTube URL
 ];
 
 /* Add new entries at the TOP (newest first) */
@@ -735,6 +772,294 @@ function destroyMusic() {
   musicBuffer   = null;
   musicData     = null;
   musicEnabled  = false;
+}
+
+/* ============================================================
+   LIGHTBOX
+   ============================================================ */
+let _lightboxItems = [];   /* { src, caption } — full list          */
+let _lightboxIndex = 0;    /* currently shown index                 */
+
+function buildLightbox() {
+  if (document.getElementById('lightbox')) return;
+
+  const el = document.createElement('div');
+  el.id = 'lightbox';
+  el.innerHTML = `
+    <div class="lightbox-overlay"></div>
+    <div class="lightbox-box">
+      <div class="lightbox-img-wrap">
+        <button class="lightbox-close" aria-label="Close">&times;</button>
+        <button class="lightbox-arrow prev" aria-label="Previous">&#8249;</button>
+        <a id="lightbox-full-link" href="" target="_blank" rel="noopener" title="Open full resolution in new tab">
+          <img id="lightbox-img" src="" alt="" />
+        </a>
+        <button class="lightbox-arrow next" aria-label="Next">&#8250;</button>
+      </div>
+      <div class="lightbox-footer">
+        <span class="lightbox-caption" id="lightbox-caption"></span>
+        <a id="lightbox-full-link-label" href="" target="_blank" rel="noopener" class="lightbox-fullres-hint">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> Full resolution
+        </a>
+      </div>
+    </div>
+  `;
+  document.body.appendChild(el);
+
+  el.querySelector('.lightbox-overlay').addEventListener('click', closeLightbox);
+  el.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
+  el.querySelector('.lightbox-arrow.prev').addEventListener('click', () => stepLightbox(-1));
+  el.querySelector('.lightbox-arrow.next').addEventListener('click', () => stepLightbox(1));
+
+  document.addEventListener('keydown', e => {
+    if (!el.classList.contains('visible')) return;
+    if (e.key === 'Escape')     closeLightbox();
+    if (e.key === 'ArrowLeft')  stepLightbox(-1);
+    if (e.key === 'ArrowRight') stepLightbox(1);
+  });
+}
+
+function openLightbox(items, index) {
+  _lightboxItems = items;
+  _lightboxIndex = index;
+  renderLightbox();
+  document.getElementById('lightbox').classList.add('visible');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  document.getElementById('lightbox')?.classList.remove('visible');
+  document.body.style.overflow = '';
+}
+
+function stepLightbox(dir) {
+  _lightboxIndex = (_lightboxIndex + dir + _lightboxItems.length) % _lightboxItems.length;
+  renderLightbox();
+}
+
+function renderLightbox() {
+  const { src, caption } = _lightboxItems[_lightboxIndex];
+  const img     = document.getElementById('lightbox-img');
+  const cap     = document.getElementById('lightbox-caption');
+  const arrows  = document.querySelectorAll('.lightbox-arrow');
+  const link    = document.getElementById('lightbox-full-link');
+  const linkLabel = document.getElementById('lightbox-full-link-label');
+
+  img.src = src;
+  img.alt = caption;
+  cap.textContent = caption;
+  if (link)      link.href = src;
+  if (linkLabel) linkLabel.href = src;
+
+  arrows.forEach(a => a.style.display = _lightboxItems.length < 2 ? 'none' : '');
+}
+
+/* ============================================================
+   SCREENSHOTS
+   ============================================================ */
+const INITIAL_SCREENSHOTS = 6;
+
+function buildScreenshots() {
+  const grid = document.getElementById('screenshots-grid');
+  if (!grid) return;
+
+  buildLightbox();
+
+  const items = SCREENSHOTS; /* full array for lightbox navigation */
+
+  SCREENSHOTS.forEach(({ src, caption }, i) => {
+    const card = document.createElement('div');
+    card.classList.add('screenshot-card');
+    if (i >= INITIAL_SCREENSHOTS) card.style.display = 'none';
+    card.innerHTML = `
+      <img src="${src}" alt="${caption}" loading="lazy" />
+      <div class="screenshot-caption">${caption}</div>
+    `;
+    card.addEventListener('click', () => openLightbox(items, i));
+    grid.appendChild(card);
+  });
+
+  /* Only render the button if there's something to show */
+  if (SCREENSHOTS.length <= INITIAL_SCREENSHOTS) return;
+
+  const wrap = document.createElement('div');
+  wrap.classList.add('show-more-wrap');
+
+  const btn = document.createElement('button');
+  btn.classList.add('show-more-btn');
+  btn.innerHTML = `Show More <i class="fa-solid fa-chevron-down"></i>`;
+
+  let expanded = false;
+  btn.addEventListener('click', () => {
+    expanded = !expanded;
+    const cards = grid.querySelectorAll('.screenshot-card');
+    cards.forEach((c, i) => {
+      if (i >= INITIAL_SCREENSHOTS) c.style.display = expanded ? '' : 'none';
+    });
+    btn.innerHTML = expanded
+      ? `Show Less <i class="fa-solid fa-chevron-down"></i>`
+      : `Show More <i class="fa-solid fa-chevron-down"></i>`;
+    btn.classList.toggle('expanded', expanded);
+  
+    /* Scroll back to section top when collapsing */
+    if (!expanded) {
+      document.getElementById('screenshots')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+
+  wrap.appendChild(btn);
+  grid.insertAdjacentElement('afterend', wrap);
+}
+
+/* ============================================================
+   VIDEO LIGHTBOX
+   ============================================================ */
+function buildVideoLightbox() {
+  if (document.getElementById('video-lightbox')) return;
+
+  const el = document.createElement('div');
+  el.id = 'video-lightbox';
+  el.innerHTML = `
+  <div class="vlb-overlay"></div>
+  <div class="vlb-box">
+    <div class="vlb-iframe-wrap">
+      <iframe
+        id="vlb-iframe"
+        src=""
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+    </div>
+    <div class="vlb-info">
+      <div>
+        <div class="vlb-title" id="vlb-title"></div>
+        <div class="vlb-desc"  id="vlb-desc"></div>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;flex-shrink:0;">
+        <a id="vlb-yt-link" href="" target="_blank" rel="noopener" class="vlb-yt-btn">
+          <i class="fa-brands fa-youtube"></i> Watch on YouTube
+        </a>
+        <button class="vlb-close" id="vlb-close">✕ Close</button>
+      </div>
+    </div>
+  </div>
+`;
+  document.body.appendChild(el);
+
+  el.querySelector('.vlb-overlay').addEventListener('click', closeVideoLightbox);
+  el.querySelector('#vlb-close').addEventListener('click', closeVideoLightbox);
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && el.classList.contains('visible')) closeVideoLightbox();
+  });
+}
+
+function openVideoLightbox(id, title, desc) {
+  const el     = document.getElementById('video-lightbox');
+  const iframe = document.getElementById('vlb-iframe');
+  const tEl    = document.getElementById('vlb-title');
+  const dEl    = document.getElementById('vlb-desc');
+
+  iframe.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0`;
+  tEl.textContent = title;
+  dEl.textContent = desc || '';
+
+  /* If the iframe fires an error, fall back to opening in a new tab */
+  iframe.onerror = () => {
+    closeVideoLightbox();
+    window.open(`https://www.youtube.com/watch?v=${id}`, '_blank', 'noopener');
+  };
+
+  const ytLink = document.getElementById('vlb-yt-link');
+  if (ytLink) ytLink.href = `https://www.youtube.com/watch?v=${id}`;
+
+  el.classList.add('visible');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeVideoLightbox() {
+  const el     = document.getElementById('video-lightbox');
+  const iframe = document.getElementById('vlb-iframe');
+
+  /* Wipe the src so the video actually stops — just hiding the modal
+     leaves the audio playing in the background */
+  iframe.src = '';
+
+  el.classList.remove('visible');
+  document.body.style.overflow = '';
+}
+
+/* ============================================================
+   VIDEOS
+   ============================================================ */
+const INITIAL_VIDEOS = 6;
+
+function buildVideos() {
+  const grid = document.getElementById('videos-grid');
+  if (!grid) return;
+
+  buildVideoLightbox();
+
+  VIDEOS.forEach(({ id, title, desc }, i) => {
+    const card = document.createElement('div');
+    card.classList.add('video-card');
+    card.setAttribute('role', 'button');
+    card.setAttribute('tabindex', '0');
+    card.setAttribute('aria-label', `Watch ${title}`);
+    if (i >= INITIAL_VIDEOS) card.style.display = 'none';
+
+    /* Thumbnail from YouTube — no iframe needed until clicked */
+    card.innerHTML = `
+      <div class="video-thumb-wrap">
+        <img
+          src="https://img.youtube.com/vi/${id}/hqdefault.jpg"
+          alt="${title}"
+          loading="lazy"
+          onerror="this.src=''; this.closest('.video-thumb-wrap').classList.add('thumb-missing')"
+        />
+        <div class="video-play-btn" aria-hidden="true">
+          <i class="fa-solid fa-play"></i>
+        </div>
+      </div>
+      <div class="video-info">
+        <h3>${title}</h3>
+        ${desc ? `<p>${desc}</p>` : ''}
+      </div>
+    `;
+
+    const open = () => openVideoLightbox(id, title, desc);
+    card.addEventListener('click', open);
+    card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') open(); });
+
+    grid.appendChild(card);
+  });
+
+  if (VIDEOS.length <= INITIAL_VIDEOS) return;
+
+  const wrap = document.createElement('div');
+  wrap.classList.add('show-more-wrap');
+
+  const btn = document.createElement('button');
+  btn.classList.add('show-more-btn');
+  btn.innerHTML = `Show More <i class="fa-solid fa-chevron-down"></i>`;
+
+  let expanded = false;
+  btn.addEventListener('click', () => {
+    expanded = !expanded;
+    grid.querySelectorAll('.video-card').forEach((c, i) => {
+      if (i >= INITIAL_VIDEOS) c.style.display = expanded ? '' : 'none';
+    });
+    btn.innerHTML = expanded
+      ? `Show Less <i class="fa-solid fa-chevron-down"></i>`
+      : `Show More <i class="fa-solid fa-chevron-down"></i>`;
+    btn.classList.toggle('expanded', expanded);
+    if (!expanded) {
+      document.getElementById('videos')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+
+  wrap.appendChild(btn);
+  grid.insertAdjacentElement('afterend', wrap);
 }
 
 /* ============================================================
@@ -1697,6 +2022,8 @@ if (typeof window !== 'undefined') window.__voidTeardown = teardown;
     buildNav();
     buildHamburger();
     buildFeatures();
+    buildScreenshots();
+    buildVideos();
     buildDownloads();
     buildExampleGames();
     buildUpdateLog();

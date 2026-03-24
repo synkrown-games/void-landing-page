@@ -267,7 +267,7 @@
     }
 
     section {
-      padding: clamp(80px, 12vw, 140px) clamp(20px, 6vw, 80px);
+      padding: clamp(40px, 6vw, 80px) clamp(20px, 6vw, 80px);
       max-width: 1200px;
       margin: 0 auto;
     }
@@ -903,6 +903,420 @@
     }
 
     /* ====================================================
+      SCREENSHOTS GRID
+      ==================================================== */
+    #screenshots-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 18px;
+    }
+
+    .screenshot-card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      cursor: pointer;
+      transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+      background: var(--surface);
+    }
+    .screenshot-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 48px rgba(124,47,255,0.18);
+    }
+    .screenshot-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+      border-bottom: 1px solid var(--border);
+    }
+    .screenshot-caption {
+      padding: 12px 16px;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    /* ====================================================
+      VIDEOS GRID
+      ==================================================== */
+    #videos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 24px;
+    }
+
+    .video-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+    }
+    .video-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 48px rgba(124,47,255,0.18);
+    }
+    .video-card iframe {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      display: block;
+      border: none;
+    }
+    .video-info {
+      padding: 14px 18px;
+    }
+    .video-info h3 {
+      font-size: 0.88rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+      color: var(--text);
+    }
+    .video-info p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* ====================================================
+      SCREENSHOT LIGHTBOX MODAL
+      ==================================================== */
+    #lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 950;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    #lightbox.visible {
+      opacity: 1;
+      pointer-events: all;
+    }
+    .lightbox-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(5, 3, 8, 0.92);
+      backdrop-filter: blur(8px);
+    }
+    .lightbox-box {
+      position: relative;
+      z-index: 1;
+      max-width: 1000px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+    .lightbox-img-wrap {
+      position: relative;
+      width: 100%;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 0 80px rgba(124,47,255,0.25);
+    }
+    .lightbox-img-wrap img {
+      width: 100%;
+      max-height: 78vh;
+      object-fit: contain;
+      display: block;
+      background: var(--surface);
+    }
+    .lightbox-caption {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(5,3,8,0.85);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      line-height: 1;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color var(--transition), color var(--transition);
+      z-index: 2;
+    }
+    .lightbox-close:hover { border-color: var(--accent); color: var(--accent); }
+
+    .lightbox-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding: 0 4px;
+    }
+
+    .lightbox-fullres-hint {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+      transition: color var(--transition);
+      white-space: nowrap;
+    }
+    .lightbox-fullres-hint:hover { color: var(--accent); }
+    .lightbox-fullres-hint i { font-size: 0.6rem; }
+
+    /* Cursor hint on the image itself */
+    #lightbox-img {
+      cursor: pointer;
+    }
+    #lightbox-full-link {
+      display: block;
+      line-height: 0; /* remove gap under img */
+    }
+
+    /* Prev / Next arrows */
+    .lightbox-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(5,3,8,0.85);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color var(--transition), color var(--transition);
+      z-index: 2;
+    }
+    .lightbox-arrow:hover { border-color: var(--accent); color: var(--accent); }
+    .lightbox-arrow.prev { left: 12px; }
+    .lightbox-arrow.next { right: 12px; }
+
+    /* ====================================================
+      SHOW MORE BUTTON
+      ==================================================== */
+    .show-more-wrap {
+      display: flex;
+      justify-content: center;
+      margin-top: 32px;
+    }
+    .show-more-btn {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--accent);
+      background: transparent;
+      border: 1px solid var(--border);
+      padding: 12px 32px;
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .show-more-btn:hover {
+      border-color: var(--accent);
+      box-shadow: 0 0 24px rgba(124,47,255,0.2);
+      transform: translateY(-2px);
+    }
+    .show-more-btn i { font-size: 0.8rem; transition: transform var(--transition); }
+    .show-more-btn.expanded i { transform: rotate(180deg); }
+    .show-more-btn.hidden { display: none; }
+
+    /* ====================================================
+      VIDEO LIGHTBOX MODAL
+      ==================================================== */
+    #video-lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 950;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    #video-lightbox.visible {
+      opacity: 1;
+      pointer-events: all;
+    }
+    .vlb-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(5, 3, 8, 0.94);
+      backdrop-filter: blur(8px);
+    }
+    .vlb-box {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 960px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .vlb-iframe-wrap {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 0 80px rgba(124,47,255,0.28);
+      background: #000;
+    }
+    .vlb-iframe-wrap iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    .vlb-info {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .vlb-title {
+      font-family: var(--font-display);
+      font-size: 0.9rem;
+      color: var(--text);
+      letter-spacing: 0.06em;
+    }
+    .vlb-desc {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+    .vlb-close {
+      flex-shrink: 0;
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+      background: transparent;
+      border: 1px solid var(--border);
+      padding: 6px 14px;
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: border-color var(--transition), color var(--transition);
+      white-space: nowrap;
+    }
+    .vlb-close:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* ====================================================
+      VIDEO CARD THUMBNAIL
+      ==================================================== */
+    .video-thumb-wrap {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      background: var(--surface2);
+      cursor: pointer;
+    }
+    .video-thumb-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease, filter 0.4s ease;
+      filter: brightness(0.8);
+    }
+    .video-card:hover .video-thumb-wrap img {
+      transform: scale(1.04);
+      filter: brightness(0.6);
+    }
+    .video-play-btn {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .video-play-btn i {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: rgba(124, 47, 255, 0.85);
+      border: 2px solid rgba(255,255,255,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      color: #fff;
+      box-shadow: 0 0 32px rgba(124,47,255,0.6);
+      transition: transform 0.25s ease, background 0.25s ease;
+    }
+    .video-card:hover .video-play-btn i {
+      transform: scale(1.12);
+      background: var(--accent);
+    }
+
+    .video-thumb-wrap.thumb-missing {
+      background: var(--surface2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .video-thumb-wrap.thumb-missing::after {
+      content: '\f03d';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      font-size: 2rem;
+      color: var(--text-dim);
+      opacity: 0.4;
+    }
+
+    .vlb-yt-btn {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #fff;
+      background: #ff0000;
+      border: 1px solid #cc0000;
+      padding: 6px 14px;
+      border-radius: var(--radius);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+      transition: background var(--transition);
+    }
+    .vlb-yt-btn:hover { background: #cc0000; color: #fff; }
+
+    /* ====================================================
        MOBILE / RESPONSIVE
        ==================================================== */
     @media (max-width: 768px) {
@@ -1049,6 +1463,27 @@
         <div class="scroll-arrow"></div>
         Scroll to explore
       </div>
+    </section>
+
+    <div class="glow-sep"></div>
+
+
+    <!-- ——— SCREENSHOTS ——— -->
+    <section id="screenshots">
+      <p class="section-label reveal">// Screenshots</p>
+      <h2 class="section-title reveal reveal-delay-1">Gallery</h2>
+      <p class="section-sub reveal reveal-delay-2">A look inside VOID.</p>
+      <div id="screenshots-grid" class="reveal reveal-delay-3"></div>
+    </section>
+
+    <div class="glow-sep"></div>
+
+    <!-- ——— VIDEOS ——— -->
+    <section id="videos">
+      <p class="section-label reveal">// Videos</p>
+      <h2 class="section-title reveal reveal-delay-1">Watch</h2>
+      <p class="section-sub reveal reveal-delay-2">Tutorials, devlogs, and demos.</p>
+      <div id="videos-grid" class="reveal reveal-delay-3"></div>
     </section>
 
     <div class="glow-sep"></div>
