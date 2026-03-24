@@ -124,7 +124,7 @@ const SHADER_CONFIG = {
    PARTICLE CONFIG — pixel box particles trailing the cursor
    ============================================================ */
 const PARTICLE_CONFIG = {
-  enabled: true,
+  enabled: false,
   maxParticles: 180,      /* hard pool cap                                  */
   spawnRate: 1,        /* particles spawned per frame while mouse moves  */
   pixelSize: 4,        /* base size in CSS px (snapped to integer grid)  */
@@ -1435,18 +1435,18 @@ function buildNav() {
   ul.appendChild(edLi);
 
   /* FX controls group */
-  const fxLi = document.createElement('li');
-  fxLi.classList.add('fx-controls');
+  //const fxLi = document.createElement('li');
+  //fxLi.classList.add('fx-controls');
 
   /* Toggle button */
-  const fxBtn = document.createElement('button');
+  /*const fxBtn = document.createElement('button');
   fxBtn.id = 'toggle-bg-btn';
   fxBtn.textContent = 'FX: ON';
   fxBtn.classList.add('active');
   fxBtn.setAttribute('aria-label', 'Toggle background animation');
   fxBtn.addEventListener('click', toggleBackground);
 
-  /* Intensity slider */
+  // Intensity slider 
   const slider = document.createElement('input');
   slider.type = 'range';
   slider.id = 'fx-intensity';
@@ -1458,7 +1458,7 @@ function buildNav() {
   slider.addEventListener('input', () => setIntensity(slider.value));
 
   fxLi.appendChild(fxBtn);
-  fxLi.appendChild(slider);
+  fxLi.appendChild(slider);*/
 
   /* Audio toggle button */
   /*const audioBtn = document.createElement('button');
@@ -1483,7 +1483,7 @@ function buildNav() {
   audioBtn.addEventListener('click', toggleAudio);
   fxLi.appendChild(audioBtn);*/
 
-  ul.appendChild(fxLi);
+  //ul.appendChild(fxLi);
 }
 
 function updateNavHighlight() {
@@ -1702,17 +1702,17 @@ if (typeof window !== 'undefined') window.__voidTeardown = teardown;
     buildRoadmap();
     buildAbout();
   
-    initParticleCanvas();
+    //initParticleCanvas();
     restorePrefs();
     
-    buildMusicControls();
+    //buildMusicControls();
   
     scrollTarget = window.scrollY;
     scrollSmooth = window.scrollY;
   
-    if (typeof THREE !== 'undefined') {
-      initThree();
-    } else {
+    //if (typeof THREE !== 'undefined') {
+      //initThree();
+    //} else {
       showFallbackBg();
       const btn = document.getElementById('toggle-bg-btn');
       if (btn) { btn.textContent = 'FX: N/A'; btn.disabled = true; }
@@ -1720,14 +1720,14 @@ if (typeof window !== 'undefined') window.__voidTeardown = teardown;
       if (slider) slider.disabled = true;
   
       _lastFrameTime = performance.now();
-      (function particleOnlyLoop() {
+      /*(function particleOnlyLoop() {
         animFrameId = requestAnimationFrame(particleOnlyLoop);
         const now   = performance.now();
         const dt    = Math.min((now - _lastFrameTime) / 1000, 0.1);
         _lastFrameTime = now;
         tickParticles(dt);
-      })();
-    }
+      })();*/
+    //}
   
     window.addEventListener('scroll',    onScroll,    { passive: true });
     window.addEventListener('resize',    resizeThree, { passive: true });
