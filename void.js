@@ -55,10 +55,10 @@ const DOWNLOADS = [
 ];
 
 const EXAMPLE_GAMES = [
-  { title: 'Abyss Runner', desc: 'Infinite side-scroller built in 48 hours.', thumb: '', url: '#' },
-  { title: 'Neon Dungeon', desc: 'Roguelite dungeon crawler with procedural levels.', thumb: '', url: '#' },
-  { title: 'Gravity Well', desc: "Physics puzzle using VOID's constraint solver.", thumb: '', url: '#' },
-  { title: 'Void Shooter', desc: 'Top-down twin-stick shooter, 60fps on mobile.', thumb: '', url: '#' },
+  { title: 'Platformer', desc: 'Platform game with procedural day/night system background.', thumb: '', url: '#' },
+  { title: 'Creature Battleground', desc: 'Set up your creature battleground and watch them fight!', thumb: '', url: '#' },
+  { title: 'Tower Defense', desc: "Simple tower defense game with 100 waves.", thumb: '', url: '#' },
+  { title: 'Vehicle Controller', desc: 'Top-down vehicle controller with tire marks and gear changes.', thumb: '', url: '#' },
 ];
 
 /* Add new entries at the TOP (newest first) */
@@ -1431,6 +1431,7 @@ function buildNav() {
   edA.target = '_blank';
   edA.rel = 'noopener';
   edA.classList.add('nav-editor-link');
+  
   edLi.appendChild(edA);
   ul.appendChild(edLi);
 
@@ -1747,7 +1748,7 @@ if (typeof window !== 'undefined') window.__voidTeardown = teardown;
     /* Wait for fonts + 1 rAF to ensure page is painted, then dismiss loader */
     document.fonts.ready.then(() => {
       /* Min display time of 1.6s so the spinner isn't just a flash */
-      const minDisplay = 1600;
+      const minDisplay = 1000;
       const elapsed    = performance.now();
       const remaining  = Math.max(0, minDisplay - elapsed);
   

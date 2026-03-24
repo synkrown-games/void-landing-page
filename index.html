@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/x-icon" href="icon.ico" />
   <title>VOID — Game Engine</title>
   <meta name="description" content="VOID: A next-generation game engine built for the web." />
 
@@ -28,9 +29,9 @@
       --surface:      #0e0a18;
       --surface2:     #160f26;
       --border:       rgba(120, 40, 255, 0.18);
-      --accent:       #7c2fff;
-      --accent-dim:   #4a1baa;
-      --accent-glow:  rgba(124, 47, 255, 0.45);
+      --accent:       #975bff;
+      --accent-dim:   #5d36ac;
+      --accent-glow:  rgba(158, 101, 255, 0.45);
       --text:         #ede8ff;
       --text-muted:   #a89fc8;
       --text-dim:     #6b608a;
@@ -983,17 +984,20 @@
        NAV BAR — sections controlled by SECTIONS array in void.js
        ============================================================ -->
   <nav id="main-nav" role="navigation" aria-label="Main navigation">
+
     <a href="#hero" class="nav-logo" aria-label="VOID — Home">
       <img src="icon.png" alt="VOID logo icon" style="width:34px;height:34px;object-fit:contain;flex-shrink:0;" />
       VOID
     </a>
 
     <!-- Nav links + FX controls injected by void.js buildNav() -->
-    <ul id="nav-links" role="list"></ul>
+    <ul id="nav-links" role="list">
 
+    </ul>
     <button id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
       <span></span><span></span><span></span>
     </button>
+      
   </nav>
 
   <!-- ============================================================
@@ -1008,18 +1012,18 @@
       <p class="hero-tagline reveal reveal-delay-2">
         An easy to use, very powerful All-In-One game engine built for the web.<br>
         Build it. Test it. Ship it.
+        
       </p>
-      
-      <div class="hero-ctas reveal reveal-delay-3">
-        <a href="https://www.youtube.com/@VOID-GameDevStudio" target="_blank">
-            <i class="fab fa-youtube" style="color: #FF0000; font-size: 18px;"></i>
-            <span>Subscribe on YouTube</span>
-        </a>
-      </div>
       <div class="hero-ctas reveal reveal-delay-3">
         <!--a href="#download" class="btn btn-primary">Download Alpha</a-->
         <a href="#" class="btn btn-ghost editor-cta" target="_blank" rel="noopener">Open Web Editor ↗</a>
         <a href="#features" class="btn btn-ghost">Explore</a>
+        
+      
+        <a href="https://www.youtube.com/@VOID-GameDevStudio" target="_blank">
+          <span class="btn btn-ghost"><i class="fab fa-youtube" style="color: #FF0000; font-size: 16px;"></i>
+            Subscribe on YouTube</span>
+        </a>
       </div>      
       
 
@@ -1171,7 +1175,7 @@
     <span class="footer-text">© 2026 VOID Engine</span>
     
     <a href="https://www.buymeacoffee.com/SynKrown" target="_blank" style="text-decoration: none;">
-        <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" height="32" style="border-radius: 6px;">
+        <img src="buy-me-a-coffee.png" alt="Buy Me A Coffee" height="32" style="border-radius: 6px;">
     </a>
   </footer>
 
