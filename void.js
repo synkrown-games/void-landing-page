@@ -2083,9 +2083,9 @@ if (typeof window !== 'undefined') window.__voidTeardown = teardown;
         dismissLoadingModal(loadingEl, () => {
           /* Show hint modal after loader is gone, unless suppressed */
           setTimeout(initReveal, 80);
-          if (getSavedPref(HINT_STORAGE_KEY, '0') !== '1') {
-            buildHintModal();
-          }
+          //if (getSavedPref(HINT_STORAGE_KEY, '0') !== '1') {
+          //  buildHintModal();
+          //}
         });
       }, remaining);
     });
