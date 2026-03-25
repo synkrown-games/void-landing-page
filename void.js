@@ -2070,7 +2070,7 @@ if (typeof window !== 'undefined') window.__voidTeardown = teardown;
     //document.addEventListener('touchstart',initAudio, { once: true });
   
     /* ---- Modals ---- */
-    const loadingEl = buildLoadingModal();
+    const loadingEl = buildLoadingModal(); 
   
     /* Wait for fonts + 1 rAF to ensure page is painted, then dismiss loader */
     document.fonts.ready.then(() => {
