@@ -91,7 +91,7 @@ const VIDEOS = [
   { id: 'MCwZAFrxVqg', title: 'Text Based Story Adventure', desc: '1 Module to create a Text Based Story' },
   { id: 'uC2keXJjug0', title: 'Minimap', desc: 'Showing how to implement a Minimap into your game' },
   { id: 'HbHb-6D5aLc', title: 'Intro Text Scroller', desc: 'Add intro text scrolling to the start of your game, or in between scenes. Tell a story!' },
-  { id: 'QfT-1CklVnk', title: 'Intro Text Scroller', desc: 'A tutorial for editing the Tower Defense template to make a Tower Defense game' },
+  { id: 'QfT-1CklVnk', title: 'Tower Defense', desc: 'A tutorial for editing the Tower Defense template to make a Tower Defense game' },
   { id: 'umeabL10mZo', title: 'GitHub Version Control', desc: 'Push and Pull your project to/from GitHub at will using your own API key' },
   { id: 'oG9d6UqXkgQ', title: 'GTA 2 Type Vehicle Physics', desc: 'Top-Down vehicle physics with tire marks and gear changes, inspired by GTA 2' },
   // Add more: { id: 'YOUTUBE_VIDEO_ID', title: 'Title', desc: 'Description' },
