@@ -1,0 +1,30 @@
+{
+  "name": "SplashProjectile",
+  "position": {
+    "x": 0,
+    "y": 0
+  },
+  "angle": 0,
+  "scale": {
+    "x": 1,
+    "y": 1
+  },
+  "enabled": true,
+  "modules": [
+    {
+      "type": "TDProjectile",
+      "enabled": true,
+      "speed": 300,
+      "homingStrength": 5,
+      "maxLifetime": 5,
+      "damage": 50,
+      "isSplash": true,
+      "splashRadius": 70,
+      "drawProjectile": true,
+      "projectileColor": "#ff6600",
+      "projectileSize": 10,
+      "showTrail": true,
+      "trailLength": 8
+    }
+  ]
+}

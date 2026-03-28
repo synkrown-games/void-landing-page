@@ -59,7 +59,7 @@ const DOWNLOADS = [
 const EXAMPLE_GAMES = [
   { title: 'Platformer', desc: 'Platform game with procedural day/night system background.', thumb: '', url: '#' },
   { title: 'Creature Battleground', desc: 'Set up your creature battleground and watch them fight!', thumb: '', url: '#' },
-  { title: 'Tower Defense', desc: "Simple tower defense game with 100 waves.", thumb: '', url: '#' },
+  { title: 'Tower Defense', desc: "Simple tower defense game with 100 waves.", thumb: 'screenshots/tower-defense.png', url: 'examples/tower-defense' },
   { title: 'Vehicle Controller', desc: 'Top-down vehicle controller with tire marks and gear changes.', thumb: '', url: '#' },
 ];
 

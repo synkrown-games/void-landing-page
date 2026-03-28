@@ -1,0 +1,60 @@
+{
+  "name": "BossEnemy_enemy",
+  "icon": null,
+  "_id": null,
+  "useThreeJS": false,
+  "position": {
+    "x": 0,
+    "y": 0
+  },
+  "depth": 0,
+  "angle": 0,
+  "scale": {
+    "x": 1,
+    "y": 1
+  },
+  "enabled": true,
+  "persistent": false,
+  "parentRelative": true,
+  "parentOffset": {
+    "x": 0,
+    "y": 0
+  },
+  "parentAngleOffset": 0,
+  "tags": [],
+  "modules": [
+    {
+      "type": "TDEnemy",
+      "enabled": true,
+      "exposedProperties": null,
+      "preventOffScreenRendering": false,
+      "preventOffScreenLoop": false,
+      "offscreenCullMargin": 100,
+      "speed": 25,
+      "pathName": "",
+      "maxHealth": 500,
+      "armor": 8,
+      "armorPercent": 15,
+      "moneyReward": 150,
+      "scoreReward": 1000,
+      "baseDamage": 3,
+      "showHealthBar": true,
+      "healthBarWidth": 70,
+      "healthBarHeight": 6,
+      "healthBarOffset": -45,
+      "healthBarBgColor": "#333333",
+      "healthBarColor": "#00ff00",
+      "healthBarLowColor": "#ff0000",
+      "lowHealthThreshold": 0.3,
+      "enemyColor": "#ff0000",
+      "enemyAccentColor": "#cc2222",
+      "enemySize": 35,
+      "enemyShape": "triangle",
+      "drawEnemy": true
+    }
+  ],
+  "children": [],
+  "deactivateOutsideViewport": false,
+  "viewportMargin": 256,
+  "alwaysActive": false
+}

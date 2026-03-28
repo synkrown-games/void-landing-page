@@ -1,0 +1,113 @@
+{
+  "name": "PlacementManager",
+  "icon": null,
+  "_id": null,
+  "useThreeJS": false,
+  "position": {
+    "x": 0,
+    "y": 0
+  },
+  "depth": 0,
+  "angle": 0,
+  "scale": {
+    "x": 1,
+    "y": 1
+  },
+  "enabled": true,
+  "persistent": false,
+  "parentRelative": true,
+  "parentOffset": {
+    "x": 0,
+    "y": 0
+  },
+  "parentAngleOffset": 0,
+  "tags": [],
+  "modules": [
+    {
+      "type": "TDPlacement",
+      "enabled": true,
+      "exposedProperties": null,
+      "preventOffScreenRendering": false,
+      "preventOffScreenLoop": false,
+      "offscreenCullMargin": 100,
+      "useGrid": true,
+      "gridSize": 50,
+      "showGrid": true,
+      "gridColor": "rgba(255, 255, 255, 0.03)",
+      "gridStyle": "dots",
+      "turrets": [
+        {
+          "prefab": "BasicTurret_turret",
+          "name": "Basic",
+          "cost": 50,
+          "color": "#4488ff",
+          "fireRate": 1,
+          "range": 150,
+          "damage": 10,
+          "uiImage": "",
+          "generateImage": true
+        },
+        {
+          "prefab": "FastTurret_turret",
+          "name": "Fast",
+          "cost": 75,
+          "color": "#44ff88",
+          "fireRate": 2,
+          "range": 120,
+          "damage": 5,
+          "uiImage": "",
+          "generateImage": true
+        },
+        {
+          "prefab": "SplashTurret_turret",
+          "name": "Splash",
+          "cost": 100,
+          "color": "#ff8844",
+          "fireRate": 0.5,
+          "range": 180,
+          "damage": 25,
+          "uiImage": "",
+          "generateImage": true
+        },
+        {
+          "prefab": "SniperTurret_turret",
+          "name": "Sniper",
+          "cost": 300,
+          "color": "#9742ff",
+          "fireRate": 0.25,
+          "range": 269,
+          "damage": 25,
+          "uiImage": "",
+          "generateImage": true
+        },
+        {
+          "prefab": "SlowTurret_turret",
+          "name": "Laser",
+          "cost": 500,
+          "color": "#ff4242",
+          "uiImage": "",
+          "fireRate": 1,
+          "range": 120,
+          "damage": 10,
+          "generateImage": true
+        }
+      ],
+      "showPanel": true,
+      "panelPosition": "bottom",
+      "panelStyle": "minimal",
+      "panelBackgroundColor": "rgba(20, 25, 35, 0.95)",
+      "panelPadding": 10,
+      "buttonSize": 60,
+      "buttonSpacing": 10,
+      "pathAvoidanceRadius": 40,
+      "infoPanelWidth": 220,
+      "infoPanelBackgroundColor": "rgba(20, 25, 35, 0.95)",
+      "infoPanelBorderColor": "rgba(100, 150, 255, 0.5)",
+      "useWorkerBuilder": false
+    }
+  ],
+  "children": [],
+  "deactivateOutsideViewport": false,
+  "viewportMargin": 256,
+  "alwaysActive": false
+}

@@ -1,0 +1,283 @@
+{
+  "name": "MainScene",
+  "gameViewport": {
+    "x": 0,
+    "y": 0,
+    "width": 1024,
+    "height": 768
+  },
+  "backgroundColor": "#0f0f23",
+  "gameObjects": [
+    {
+      "name": "Title",
+      "position": {
+        "x": 512,
+        "y": 120
+      },
+      "angle": 0,
+      "scale": {
+        "x": 1,
+        "y": 1
+      },
+      "enabled": true,
+      "modules": []
+    }
+  ],
+  "instances": [
+    {
+      "prefabName": "MenuButton",
+      "position": {
+        "x": 512,
+        "y": 280
+      },
+      "angle": 0,
+      "scale": {
+        "x": 1,
+        "y": 1
+      },
+      "allModules": [
+        {
+          "type": "Button",
+          "enabled": true,
+          "renderMode": "world",
+          "text": "Level 1 - Grasslands",
+          "fontSize": 24,
+          "fontFamily": "Arial, sans-serif",
+          "fontWeight": "bold",
+          "width": 280,
+          "height": 60,
+          "cornerRadius": 12,
+          "backgroundColor": "#2d5a27",
+          "textColor": "#ffffff",
+          "borderColor": "#1a3518",
+          "borderWidth": 3,
+          "hoverBackgroundColor": "#3d7a35",
+          "hoverTextColor": "#ffffff",
+          "hoverBorderColor": "#2d5a27",
+          "pressedBackgroundColor": "#1a3518",
+          "pressedTextColor": "#ffffff",
+          "pressedBorderColor": "#0f200d",
+          "buttonStyle": "gradient",
+          "gradientDirection": "vertical",
+          "gradientEndColor": "#1a3518",
+          "showShadow": true,
+          "shadowColor": "rgba(0, 0, 0, 0.4)",
+          "shadowOffsetX": 0,
+          "shadowOffsetY": 4,
+          "shadowBlur": 10,
+          "hoverScale": 1.05,
+          "clickScale": 0.95,
+          "clickScript": "sceneLoad(\"Level1\")",
+          "icon": "🌳",
+          "iconPosition": "left",
+          "iconSize": 28,
+          "iconSpacing": 12
+        }
+      ]
+    },
+    {
+      "prefabName": "MenuButton",
+      "position": {
+        "x": 512,
+        "y": 360
+      },
+      "angle": 0,
+      "scale": {
+        "x": 1,
+        "y": 1
+      },
+      "allModules": [
+        {
+          "type": "Button",
+          "enabled": true,
+          "renderMode": "world",
+          "text": "Level 2 - Desert",
+          "fontSize": 24,
+          "fontFamily": "Arial, sans-serif",
+          "fontWeight": "bold",
+          "width": 280,
+          "height": 60,
+          "cornerRadius": 12,
+          "backgroundColor": "#8b6914",
+          "textColor": "#ffffff",
+          "borderColor": "#5c4610",
+          "borderWidth": 3,
+          "hoverBackgroundColor": "#ab8920",
+          "hoverTextColor": "#ffffff",
+          "hoverBorderColor": "#8b6914",
+          "pressedBackgroundColor": "#5c4610",
+          "pressedTextColor": "#ffffff",
+          "pressedBorderColor": "#3d2e0a",
+          "buttonStyle": "gradient",
+          "gradientDirection": "vertical",
+          "gradientEndColor": "#5c4610",
+          "showShadow": true,
+          "shadowColor": "rgba(0, 0, 0, 0.4)",
+          "shadowOffsetX": 0,
+          "shadowOffsetY": 4,
+          "shadowBlur": 10,
+          "hoverScale": 1.05,
+          "clickScale": 0.95,
+          "clickScript": "sceneLoad(\"Level2\")",
+          "icon": "🏜️",
+          "iconPosition": "left",
+          "iconSize": 28,
+          "iconSpacing": 12
+        }
+      ]
+    },
+    {
+      "prefabName": "MenuButton",
+      "position": {
+        "x": 512,
+        "y": 440
+      },
+      "angle": 0,
+      "scale": {
+        "x": 1,
+        "y": 1
+      },
+      "allModules": [
+        {
+          "type": "Button",
+          "enabled": true,
+          "renderMode": "world",
+          "text": "Level 3 - Frozen Tundra",
+          "fontSize": 24,
+          "fontFamily": "Arial, sans-serif",
+          "fontWeight": "bold",
+          "width": 280,
+          "height": 60,
+          "cornerRadius": 12,
+          "backgroundColor": "#1a4a6b",
+          "textColor": "#ffffff",
+          "borderColor": "#0d2a3d",
+          "borderWidth": 3,
+          "hoverBackgroundColor": "#2a6a8b",
+          "hoverTextColor": "#ffffff",
+          "hoverBorderColor": "#1a4a6b",
+          "pressedBackgroundColor": "#0d2a3d",
+          "pressedTextColor": "#ffffff",
+          "pressedBorderColor": "#061520",
+          "buttonStyle": "gradient",
+          "gradientDirection": "vertical",
+          "gradientEndColor": "#0d2a3d",
+          "showShadow": true,
+          "shadowColor": "rgba(0, 0, 0, 0.4)",
+          "shadowOffsetX": 0,
+          "shadowOffsetY": 4,
+          "shadowBlur": 10,
+          "hoverScale": 1.05,
+          "clickScale": 0.95,
+          "clickScript": "sceneLoad(\"Level3\")",
+          "icon": "❄️",
+          "iconPosition": "left",
+          "iconSize": 28,
+          "iconSpacing": 12
+        }
+      ]
+    },
+    {
+      "prefabName": "MenuButton",
+      "position": {
+        "x": 512,
+        "y": 520
+      },
+      "angle": 0,
+      "scale": {
+        "x": 1,
+        "y": 1
+      },
+      "allModules": [
+        {
+          "type": "Button",
+          "enabled": true,
+          "renderMode": "world",
+          "text": "Level 4 - Volcanic",
+          "fontSize": 24,
+          "fontFamily": "Arial, sans-serif",
+          "fontWeight": "bold",
+          "width": 280,
+          "height": 60,
+          "cornerRadius": 12,
+          "backgroundColor": "#8b2500",
+          "textColor": "#ffffff",
+          "borderColor": "#4d1500",
+          "borderWidth": 3,
+          "hoverBackgroundColor": "#ab3500",
+          "hoverTextColor": "#ffffff",
+          "hoverBorderColor": "#8b2500",
+          "pressedBackgroundColor": "#4d1500",
+          "pressedTextColor": "#ffffff",
+          "pressedBorderColor": "#2d0d00",
+          "buttonStyle": "gradient",
+          "gradientDirection": "vertical",
+          "gradientEndColor": "#4d1500",
+          "showShadow": true,
+          "shadowColor": "rgba(0, 0, 0, 0.4)",
+          "shadowOffsetX": 0,
+          "shadowOffsetY": 4,
+          "shadowBlur": 10,
+          "hoverScale": 1.05,
+          "clickScale": 0.95,
+          "clickScript": "sceneLoad(\"Level4\")",
+          "icon": "🌋",
+          "iconPosition": "left",
+          "iconSize": 28,
+          "iconSpacing": 12
+        }
+      ]
+    },
+    {
+      "prefabName": "MenuButton",
+      "position": {
+        "x": 512,
+        "y": 600
+      },
+      "angle": 0,
+      "scale": {
+        "x": 1,
+        "y": 1
+      },
+      "allModules": [
+        {
+          "type": "Button",
+          "enabled": true,
+          "renderMode": "world",
+          "text": "Level 5 - Final Stand",
+          "fontSize": 24,
+          "fontFamily": "Arial, sans-serif",
+          "fontWeight": "bold",
+          "width": 280,
+          "height": 60,
+          "cornerRadius": 12,
+          "backgroundColor": "#3d1a4d",
+          "textColor": "#ffffff",
+          "borderColor": "#1f0d27",
+          "borderWidth": 3,
+          "hoverBackgroundColor": "#5d2a6d",
+          "hoverTextColor": "#ffffff",
+          "hoverBorderColor": "#3d1a4d",
+          "pressedBackgroundColor": "#1f0d27",
+          "pressedTextColor": "#ffffff",
+          "pressedBorderColor": "#100714",
+          "buttonStyle": "gradient",
+          "gradientDirection": "vertical",
+          "gradientEndColor": "#1f0d27",
+          "showShadow": true,
+          "shadowColor": "rgba(0, 0, 0, 0.4)",
+          "shadowOffsetX": 0,
+          "shadowOffsetY": 4,
+          "shadowBlur": 10,
+          "hoverScale": 1.05,
+          "clickScale": 0.95,
+          "clickScript": "sceneLoad(\"Level5\")",
+          "icon": "💀",
+          "iconPosition": "left",
+          "iconSize": 28,
+          "iconSpacing": 12
+        }
+      ]
+    }
+  ]
+}

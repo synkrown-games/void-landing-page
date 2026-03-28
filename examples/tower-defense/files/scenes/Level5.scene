@@ -1,0 +1,197 @@
+{
+  "name": "Level5",
+  "gameViewport": {
+    "x": 0,
+    "y": 0,
+    "width": 1024,
+    "height": 768
+  },
+  "backgroundColor": "#1a0d1f",
+  "gameObjects": [],
+  "instances": [
+    {
+      "prefabName": "GameManager",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "angle": 0,
+      "scale": {
+        "x": 1,
+        "y": 1
+      },
+      "propertyOverrides": {
+        "TDGameManager.startingLives": 15,
+        "TDGameManager.startingMoney": 150,
+        "TDGameManager.moneyPerKill": 3,
+        "TDGameManager.moneyPerWave": 40,
+        "TDWaveManager.totalWaves": 320,
+        "TDWaveManager.baseEnemyCount": 8,
+        "TDWaveManager.enemiesPerWaveIncrease": 2,
+        "TDWaveManager.healthMultiplierPerWave": 1.02,
+        "TDWaveManager.speedMultiplierPerWave": 1.002,
+        "TDWaveManager.enemyPrefabs": [
+          "SwarmEnemy",
+          "FastEnemy",
+          "BasicEnemy",
+          "ArmoredEnemy",
+          "TankEnemy",
+          "BossEnemy"
+        ],
+        "TDWaveManager.wavesBetweenNewEnemy": 40,
+        "TDWaveManager.enemySpawnInterval": 0.5
+      }
+    },
+    {
+      "prefabName": "PlacementManager",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "angle": 0,
+      "scale": {
+        "x": 1,
+        "y": 1
+      },
+      "propertyOverrides": {
+        "TDPlacement.turrets": [
+          {
+            "prefab": "BasicTurret",
+            "name": "Basic",
+            "cost": 50,
+            "color": "#4488ff",
+            "fireRate": 1,
+            "range": 150,
+            "damage": 10,
+            "uiImage": ""
+          },
+          {
+            "prefab": "FastTurret",
+            "name": "Fast",
+            "cost": 75,
+            "color": "#44ff88",
+            "fireRate": 2,
+            "range": 120,
+            "damage": 5,
+            "uiImage": ""
+          },
+          {
+            "prefab": "SplashTurret",
+            "name": "Splash",
+            "cost": 100,
+            "color": "#ff8844",
+            "fireRate": 0.5,
+            "range": 180,
+            "damage": 25,
+            "uiImage": ""
+          },
+          {
+            "prefab": "SniperTurret",
+            "name": "Sniper",
+            "cost": 150,
+            "color": "#8844aa",
+            "fireRate": 0.3,
+            "range": 300,
+            "damage": 100,
+            "uiImage": ""
+          },
+          {
+            "prefab": "SlowTurret",
+            "name": "Slow",
+            "cost": 60,
+            "color": "#00ccff",
+            "fireRate": 1,
+            "range": 100,
+            "damage": 5,
+            "uiImage": ""
+          }
+        ]
+      }
+    },
+    {
+      "prefabName": "Path",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "angle": 0,
+      "scale": {
+        "x": 1,
+        "y": 1
+      },
+      "propertyOverrides": {
+        "TDPath.gizmoPoints": [
+          {
+            "x": 40,
+            "y": 200
+          },
+          {
+            "x": 150,
+            "y": 200
+          },
+          {
+            "x": 150,
+            "y": 600
+          },
+          {
+            "x": 350,
+            "y": 600
+          },
+          {
+            "x": 350,
+            "y": 150
+          },
+          {
+            "x": 550,
+            "y": 150
+          },
+          {
+            "x": 550,
+            "y": 450
+          },
+          {
+            "x": 350,
+            "y": 450
+          },
+          {
+            "x": 350,
+            "y": 700
+          },
+          {
+            "x": 750,
+            "y": 700
+          },
+          {
+            "x": 750,
+            "y": 250
+          },
+          {
+            "x": 950,
+            "y": 250
+          },
+          {
+            "x": 950,
+            "y": 550
+          },
+          {
+            "x": 1024,
+            "y": 550
+          }
+        ],
+        "TDPath.pathColor": "#9933ff"
+      }
+    },
+    {
+      "prefabName": "BackButton",
+      "position": {
+        "x": 60,
+        "y": 70
+      },
+      "angle": 0,
+      "scale": {
+        "x": 1,
+        "y": 1
+      }
+    }
+  ]
+}

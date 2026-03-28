@@ -1,0 +1,205 @@
+{
+  "name": "Path",
+  "icon": null,
+  "_id": "inst_k7abklklq",
+  "useThreeJS": false,
+  "position": {
+    "x": -25,
+    "y": 150
+  },
+  "depth": 0,
+  "angle": 0,
+  "scale": {
+    "x": 1,
+    "y": 1
+  },
+  "enabled": true,
+  "persistent": false,
+  "parentRelative": true,
+  "parentOffset": {
+    "x": 0,
+    "y": 0
+  },
+  "parentAngleOffset": 0,
+  "tags": [],
+  "modules": [
+    {
+      "type": "TDPath",
+      "enabled": true,
+      "exposedProperties": null,
+      "preventOffScreenRendering": false,
+      "preventOffScreenLoop": false,
+      "offscreenCullMargin": 100,
+      "pathMode": "gizmo",
+      "useSpline": true,
+      "splineResolution": 16,
+      "splineTension": 0.85,
+      "generationMode": "waypoints",
+      "generatedSegments": 4,
+      "pathWidth": 50,
+      "noiseAmount": 15,
+      "noiseFrequency": 0.5,
+      "smoothIterations": 2,
+      "startX": 0,
+      "startY": 0,
+      "endX": 400,
+      "endY": 300,
+      "generateCurvy": true,
+      "curviness": 50,
+      "gizmoPoints": [
+        {
+          "x": 100,
+          "y": 25
+        },
+        {
+          "x": 75,
+          "y": 225
+        },
+        {
+          "x": 250,
+          "y": 450
+        },
+        {
+          "x": 350,
+          "y": 50
+        },
+        {
+          "x": 550,
+          "y": 0
+        },
+        {
+          "x": 475,
+          "y": 250
+        },
+        {
+          "x": 725,
+          "y": 250
+        },
+        {
+          "x": 675,
+          "y": 0
+        },
+        {
+          "x": 975,
+          "y": 50
+        },
+        {
+          "x": 900,
+          "y": 450
+        }
+      ],
+      "showPath": false,
+      "pathColor": "#6f542f",
+      "pathBorderColor": "#228844",
+      "showPoints": false,
+      "pointColor": "#ffff00",
+      "pointRadius": 8,
+      "showDirection": false,
+      "showGizmoAlways": true,
+      "pathStyle": "solid",
+      "showPathBorder": false,
+      "pathOpacity": 0.8,
+      "offscreenRender": false
+    },
+    {
+      "type": "SplinePathRenderer",
+      "enabled": true,
+      "exposedProperties": null,
+      "preventOffScreenRendering": false,
+      "preventOffScreenLoop": false,
+      "offscreenCullMargin": 100,
+      "pathPoints": [
+        {
+          "x": 100,
+          "y": 25
+        },
+        {
+          "x": 75,
+          "y": 225
+        },
+        {
+          "x": 250,
+          "y": 450
+        },
+        {
+          "x": 350,
+          "y": 50
+        },
+        {
+          "x": 550,
+          "y": 0
+        },
+        {
+          "x": 475,
+          "y": 250
+        },
+        {
+          "x": 725,
+          "y": 250
+        },
+        {
+          "x": 675,
+          "y": 0
+        },
+        {
+          "x": 975,
+          "y": 50
+        },
+        {
+          "x": 900,
+          "y": 450
+        }
+      ],
+      "useSpline": true,
+      "splineResolution": 16,
+      "splineTension": 0.85,
+      "pathStyle": "grass",
+      "pathWidth": 64,
+      "pathColor": "#673e28",
+      "pathBorderColor": "#556b2f",
+      "pathOpacity": 1,
+      "showBorder": false,
+      "borderWidth": 4,
+      "useTexture": false,
+      "texturePath": "",
+      "textureScale": 1,
+      "textureRepeat": true,
+      "textureOffsetX": 0,
+      "textureOffsetY": 0,
+      "textureBlendMode": "source-over",
+      "textureOpacity": 1,
+      "glowEnabled": false,
+      "glowColor": "#ff0000",
+      "glowIntensity": 10,
+      "animateTexture": false,
+      "animationSpeed": 1,
+      "showDecorations": true,
+      "decorationType": "stones",
+      "decorationDensity": 1,
+      "decorationScale": 1,
+      "showDirection": false,
+      "directionInterval": 100,
+      "directionColor": "#ffffff",
+      "directionSize": 10,
+      "showEndpoints": false,
+      "startPointColor": "#00ff00",
+      "endPointColor": "#ff0000",
+      "pointRadius": 8,
+      "edgeSoftness": true,
+      "edgeSoftnessWidth": 11,
+      "edgeSoftnessCurve": 1,
+      "edgeSoftnessNoise": 0.8,
+      "useChunkedCanvas": true,
+      "chunkSize": 512,
+      "endSoftness": false,
+      "endSoftnessLength": 20,
+      "endSoftnessCurve": 0.5,
+      "viewportMargin": 50,
+      "textureSeed": 12345
+    }
+  ],
+  "children": [],
+  "deactivateOutsideViewport": false,
+  "viewportMargin": 256,
+  "alwaysActive": true
+}

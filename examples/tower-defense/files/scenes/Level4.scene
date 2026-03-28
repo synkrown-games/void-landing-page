@@ -1,0 +1,188 @@
+{
+  "name": "Level4",
+  "gameViewport": {
+    "x": 0,
+    "y": 0,
+    "width": 1024,
+    "height": 768
+  },
+  "backgroundColor": "#2d1a1a",
+  "gameObjects": [],
+  "instances": [
+    {
+      "prefabName": "GameManager",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "angle": 0,
+      "scale": {
+        "x": 1,
+        "y": 1
+      },
+      "propertyOverrides": {
+        "TDGameManager.startingLives": 20,
+        "TDGameManager.startingMoney": 100,
+        "TDGameManager.moneyPerKill": 4,
+        "TDGameManager.moneyPerWave": 15,
+        "TDWaveManager.totalWaves": 160,
+        "TDWaveManager.baseEnemyCount": 6,
+        "TDWaveManager.enemiesPerWaveIncrease": 2,
+        "TDWaveManager.healthMultiplierPerWave": 1.03,
+        "TDWaveManager.speedMultiplierPerWave": 1.003,
+        "TDWaveManager.enemyPrefabs": [
+          "SwarmEnemy",
+          "FastEnemy",
+          "BasicEnemy",
+          "ArmoredEnemy",
+          "TankEnemy"
+        ],
+        "TDWaveManager.wavesBetweenNewEnemy": 20,
+        "TDWaveManager.enemySpawnInterval": 0.8
+      }
+    },
+    {
+      "prefabName": "PlacementManager",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "angle": 0,
+      "scale": {
+        "x": 1,
+        "y": 1
+      },
+      "propertyOverrides": {
+        "TDPlacement.turrets": [
+          {
+            "prefab": "BasicTurret",
+            "name": "Basic",
+            "cost": 50,
+            "color": "#4488ff",
+            "fireRate": 1,
+            "range": 150,
+            "damage": 10,
+            "uiImage": ""
+          },
+          {
+            "prefab": "FastTurret",
+            "name": "Fast",
+            "cost": 75,
+            "color": "#44ff88",
+            "fireRate": 2,
+            "range": 120,
+            "damage": 5,
+            "uiImage": ""
+          },
+          {
+            "prefab": "SplashTurret",
+            "name": "Splash",
+            "cost": 100,
+            "color": "#ff8844",
+            "fireRate": 0.5,
+            "range": 180,
+            "damage": 25,
+            "uiImage": ""
+          },
+          {
+            "prefab": "SniperTurret",
+            "name": "Sniper",
+            "cost": 150,
+            "color": "#8844aa",
+            "fireRate": 0.3,
+            "range": 300,
+            "damage": 100,
+            "uiImage": ""
+          },
+          {
+            "prefab": "SlowTurret",
+            "name": "Slow",
+            "cost": 60,
+            "color": "#00ccff",
+            "fireRate": 1,
+            "range": 100,
+            "damage": 5,
+            "uiImage": ""
+          }
+        ]
+      }
+    },
+    {
+      "prefabName": "Path",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "angle": 0,
+      "scale": {
+        "x": 1,
+        "y": 1
+      },
+      "propertyOverrides": {
+        "TDPath.gizmoPoints": [
+          {
+            "x": 40,
+            "y": 384
+          },
+          {
+            "x": 200,
+            "y": 384
+          },
+          {
+            "x": 200,
+            "y": 100
+          },
+          {
+            "x": 450,
+            "y": 100
+          },
+          {
+            "x": 450,
+            "y": 500
+          },
+          {
+            "x": 250,
+            "y": 500
+          },
+          {
+            "x": 250,
+            "y": 680
+          },
+          {
+            "x": 700,
+            "y": 680
+          },
+          {
+            "x": 700,
+            "y": 300
+          },
+          {
+            "x": 900,
+            "y": 300
+          },
+          {
+            "x": 900,
+            "y": 550
+          },
+          {
+            "x": 1024,
+            "y": 550
+          }
+        ],
+        "TDPath.pathColor": "#cc4422"
+      }
+    },
+    {
+      "prefabName": "BackButton",
+      "position": {
+        "x": 60,
+        "y": 70
+      },
+      "angle": 0,
+      "scale": {
+        "x": 1,
+        "y": 1
+      }
+    }
+  ]
+}

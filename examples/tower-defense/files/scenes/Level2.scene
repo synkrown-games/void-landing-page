@@ -1,0 +1,168 @@
+{
+  "name": "Level2",
+  "gameViewport": {
+    "x": 0,
+    "y": 0,
+    "width": 1024,
+    "height": 768
+  },
+  "backgroundColor": "#3d2b1f",
+  "gameObjects": [],
+  "instances": [
+    {
+      "prefabName": "GameManager",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "angle": 0,
+      "scale": {
+        "x": 1,
+        "y": 1
+      },
+      "propertyOverrides": {
+        "TDGameManager.startingLives": 25,
+        "TDGameManager.startingMoney": 100,
+        "TDGameManager.moneyPerKill": 6,
+        "TDGameManager.moneyPerWave": 25,
+        "TDWaveManager.totalWaves": 40,
+        "TDWaveManager.baseEnemyCount": 4,
+        "TDWaveManager.enemiesPerWaveIncrease": 1,
+        "TDWaveManager.healthMultiplierPerWave": 1.1,
+        "TDWaveManager.speedMultiplierPerWave": 1.08,
+        "TDWaveManager.enemyPrefabs": [
+          "BasicEnemy",
+          "FastEnemy",
+          "ArmoredEnemy"
+        ],
+        "TDWaveManager.wavesBetweenNewEnemy": 5,
+        "TDWaveManager.enemySpawnInterval": 1.1
+      }
+    },
+    {
+      "prefabName": "PlacementManager",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "angle": 0,
+      "scale": {
+        "x": 1,
+        "y": 1
+      },
+      "propertyOverrides": {
+        "TDPlacement.turrets": [
+          {
+            "prefab": "BasicTurret",
+            "name": "Basic",
+            "cost": 50,
+            "color": "#4488ff",
+            "fireRate": 1,
+            "range": 150,
+            "damage": 10,
+            "uiImage": ""
+          },
+          {
+            "prefab": "FastTurret",
+            "name": "Fast",
+            "cost": 75,
+            "color": "#44ff88",
+            "fireRate": 2,
+            "range": 120,
+            "damage": 5,
+            "uiImage": ""
+          },
+          {
+            "prefab": "SplashTurret",
+            "name": "Splash",
+            "cost": 100,
+            "color": "#ff8844",
+            "fireRate": 0.5,
+            "range": 180,
+            "damage": 25,
+            "uiImage": ""
+          },
+          {
+            "prefab": "SniperTurret",
+            "name": "Sniper",
+            "cost": 150,
+            "color": "#8844aa",
+            "fireRate": 0.3,
+            "range": 300,
+            "damage": 100,
+            "uiImage": ""
+          }
+        ]
+      }
+    },
+    {
+      "prefabName": "Path",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "angle": 0,
+      "scale": {
+        "x": 1,
+        "y": 1
+      },
+      "propertyOverrides": {
+        "TDPath.gizmoPoints": [
+          {
+            "x": 40,
+            "y": 384
+          },
+          {
+            "x": 150,
+            "y": 384
+          },
+          {
+            "x": 150,
+            "y": 150
+          },
+          {
+            "x": 400,
+            "y": 150
+          },
+          {
+            "x": 400,
+            "y": 600
+          },
+          {
+            "x": 650,
+            "y": 600
+          },
+          {
+            "x": 650,
+            "y": 300
+          },
+          {
+            "x": 850,
+            "y": 300
+          },
+          {
+            "x": 850,
+            "y": 500
+          },
+          {
+            "x": 1024,
+            "y": 500
+          }
+        ],
+        "TDPath.pathColor": "#d4a84b"
+      }
+    },
+    {
+      "prefabName": "BackButton",
+      "position": {
+        "x": 60,
+        "y": 70
+      },
+      "angle": 0,
+      "scale": {
+        "x": 1,
+        "y": 1
+      }
+    }
+  ]
+}

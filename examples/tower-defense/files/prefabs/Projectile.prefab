@@ -1,0 +1,30 @@
+{
+  "name": "Projectile",
+  "position": {
+    "x": 0,
+    "y": 0
+  },
+  "angle": 0,
+  "scale": {
+    "x": 1,
+    "y": 1
+  },
+  "enabled": true,
+  "modules": [
+    {
+      "type": "TDProjectile",
+      "enabled": true,
+      "speed": 400,
+      "homingStrength": 10,
+      "maxLifetime": 5,
+      "damage": 35,
+      "isSplash": false,
+      "splashRadius": 50,
+      "drawProjectile": true,
+      "projectileColor": "#ffff00",
+      "projectileSize": 6,
+      "showTrail": true,
+      "trailLength": 10
+    }
+  ]
+}

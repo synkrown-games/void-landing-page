@@ -1,0 +1,9 @@
+{
+  "name": "Tower Defense",
+  "main": "index.html",
+  "window": {
+    "title": "Tower Defense",
+    "width": 800,
+    "height": 600
+  }
+}

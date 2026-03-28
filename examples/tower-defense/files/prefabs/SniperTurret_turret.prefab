@@ -1,0 +1,74 @@
+{
+  "name": "SniperTurret_turret",
+  "icon": null,
+  "_id": null,
+  "useThreeJS": false,
+  "position": {
+    "x": 0,
+    "y": 0
+  },
+  "depth": 0,
+  "angle": 0,
+  "scale": {
+    "x": 1,
+    "y": 1
+  },
+  "enabled": true,
+  "persistent": false,
+  "parentRelative": true,
+  "parentOffset": {
+    "x": 0,
+    "y": 0
+  },
+  "parentAngleOffset": 0,
+  "tags": [
+    "interesting"
+  ],
+  "modules": [
+    {
+      "type": "TDTurret",
+      "enabled": true,
+      "exposedProperties": null,
+      "preventOffScreenRendering": false,
+      "preventOffScreenLoop": false,
+      "offscreenCullMargin": 100,
+      "damage": 25,
+      "range": 150,
+      "fireRate": 1,
+      "rotationSpeed": 90,
+      "projectilePrefab": "Projectile",
+      "projectileSpeed": 800,
+      "useProjectile": true,
+      "turretType": "single",
+      "burstCount": 3,
+      "burstDelay": 0.1,
+      "splashRadius": 50,
+      "beamDuration": 0.5,
+      "targetingMode": "strongest",
+      "predictTarget": true,
+      "cost": 120,
+      "sellValue": 60,
+      "description": "A basic defensive turret",
+      "maxUpgrades": 5,
+      "upgradeCost": 30,
+      "upgradeCostMultiplier": 1.5,
+      "upgradeStatMultiplier": 0.2,
+      "upgradeSizeIncrease": 0.1,
+      "showRange": true,
+      "showRangeOnlyWhenSelected": true,
+      "rangeColor": "rgba(128, 0, 128, 0.2)",
+      "rangeBorderColor": "rgba(0,255,0,0.8)",
+      "drawTurret": true,
+      "turretColor": "#8844aa",
+      "turretAccentColor": "#2266cc",
+      "turretSize": 24,
+      "barrelLength": 50,
+      "barrelWidth": 4,
+      "_upgradeLevel": 0
+    }
+  ],
+  "children": [],
+  "deactivateOutsideViewport": false,
+  "viewportMargin": 256,
+  "alwaysActive": false
+}

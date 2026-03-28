@@ -1,0 +1,62 @@
+HOW TO TURN THIS GAME INTO A WINDOWS EXECUTABLE (.EXE)
+
+            The easiest way to package this HTML5 game as a standalone Windows application is using NW.js.
+
+            STEP 1: PREPARE YOUR FILES
+
+            Ensure this folder contains your 'index.html' and game files.
+
+            Create a new text file in this folder named 'package.json'.
+
+            Open 'package.json' with Notepad and paste the following code inside it:
+
+            {
+            "name": "Tower Defense",
+            "main": "index.html",
+            "window": {
+                "title": "Tower Defense",
+                "width": 800,
+                "height": 600
+            }
+            }
+
+            (Note: You can change the resolution numbers to match your project.)
+
+            STEP 2: DOWNLOAD THE RUNNER
+
+            Go to https://nwjs.io/ and download the "Normal" version for Windows.
+
+            Open the downloaded zip file and extract ALL contents into this game folder.
+
+            STEP 3: PACKAGE THE GAME
+
+            Select your game files (index.html, package.json, and your asset folders). DO NOT select the NW.js files you just extracted yet.
+
+            Right-click the selected files and choose "Send to" -> "Compressed (zipped) folder".
+
+            Name this zip file 'package.zip'.
+
+            Rename the file extension from 'package.zip' to 'package.nw'. (Click "Yes" if Windows asks to confirm the change).
+
+            STEP 4: CREATE THE EXECUTABLE
+
+            In this folder, hold the Shift key and Right-Click in an empty space.
+
+            Select "Open PowerShell window here" (or "Open Command window here").
+
+            Type the following command exactly and press Enter:
+
+            copy /b nw.exe+package.nw Tower Defense.exe
+
+            For powershell, use this command instead:
+            cmd /c copy /b nw.exe+package.nw Tower Defense.exe
+
+            (You can replace the .exe name as you wish.)
+
+            DONE! You now have a file named 'Tower Defense.exe'. You can delete 'package.nw' and the leftover zip files.
+
+            Icon for nw.exe can be replaced with tools like Resource Hacker, nw-builder and node-winresourcer.
+
+            You can create a installer to deploy all necessary files onto end user’s system. You can use Windows Installer, NSIS or Inno Setup.
+
+            IMPORTANT: To share your game, you must keep 'Tower Defense.exe' in the same folder as the .dll files (like nw.dll) that came with the download. Send the whole folder to your players.

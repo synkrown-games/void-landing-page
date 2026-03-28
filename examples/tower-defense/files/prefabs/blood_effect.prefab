@@ -1,0 +1,64 @@
+{
+  "name": "blood_effect",
+  "icon": null,
+  "_id": null,
+  "useThreeJS": false,
+  "position": {
+    "x": 0,
+    "y": 0
+  },
+  "depth": 0,
+  "angle": 0,
+  "scale": {
+    "x": 1,
+    "y": 1
+  },
+  "enabled": true,
+  "persistent": false,
+  "parentRelative": true,
+  "parentOffset": {
+    "x": 0,
+    "y": 0
+  },
+  "parentAngleOffset": 0,
+  "tags": [],
+  "modules": [
+    {
+      "type": "BloodSplatter",
+      "enabled": true,
+      "exposedProperties": null,
+      "preventOffScreenRendering": false,
+      "preventOffScreenLoop": false,
+      "offscreenCullMargin": 100,
+      "particleCount": 15,
+      "particleLifetimeMin": 0.3,
+      "particleLifetimeMax": 0.8,
+      "speedMin": 100,
+      "speedMax": 300,
+      "spreadAngle": 360,
+      "baseAngle": -90,
+      "gravity": 200,
+      "particleSizeMin": 2,
+      "particleSizeMax": 6,
+      "particleColor": "#cc0000",
+      "particleEndColor": "#660000",
+      "fadeOut": true,
+      "yDepthEnabled": false,
+      "yDepthMin": -20,
+      "yDepthMax": 20,
+      "yDepthScale": 0.5,
+      "createDecals": true,
+      "decalSizeMin": 1,
+      "decalSizeMax": 3,
+      "decalColor": "#880000",
+      "decalAlpha": 0.8,
+      "decalVariation": true,
+      "autoPlay": true,
+      "destroyOnComplete": true
+    }
+  ],
+  "children": [],
+  "deactivateOutsideViewport": false,
+  "viewportMargin": 256,
+  "alwaysActive": true
+}
