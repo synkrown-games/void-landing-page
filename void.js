@@ -24,12 +24,12 @@
 
 const SECTIONS = [
   { id: 'hero', label: 'Home' },
+  { id: 'about', label: 'About' },
   { id: 'screenshots', label: 'Gallery' },
   { id: 'videos',      label: 'Videos'  },
-  { id: 'about', label: 'About' },
+  { id: 'games', label: 'Examples' },
   { id: 'features', label: 'Features' },
   { id: 'roadmap', label: 'Roadmap' },
-  { id: 'games', label: 'Examples' },
   { id: 'updates', label: 'Updates' },
   { id: 'download', label: 'Download' },
 ];
