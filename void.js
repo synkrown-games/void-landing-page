@@ -50,17 +50,17 @@ const FEATURES = [
 ];
 
 const DOWNLOADS = [
-  { label: 'Download for Windows(COMING SOON)', href: '#', primary: true, note: 'v0.1.0-alpha · 64-bit' },
-  { label: 'Download for macOS(COMING SOON)', href: '#', primary: false, note: 'v0.1.0-alpha · Universal' },
-  { label: 'Download for Linux(COMING SOON)', href: '#', primary: false, note: 'v0.1.0-alpha · AppImage' },
+  { label: 'Download for Windows(COMING SOON)', href: 'https://voidengine.wasmer.app/', primary: true, note: 'v0.1.0-alpha · 64-bit' },
+  { label: 'Download for macOS(COMING SOON)', href: 'https://voidengine.wasmer.app/', primary: false, note: 'v0.1.0-alpha · Universal' },
+  { label: 'Download for Linux(COMING SOON)', href: 'https://voidengine.wasmer.app/', primary: false, note: 'v0.1.0-alpha · AppImage' },
   //{ label: 'View on GitHub',       href: '#', primary: false, note: 'Source code'              },
 ];
 
 const EXAMPLE_GAMES = [
-  { title: 'Platformer', desc: 'Platform game with procedural day/night system background.', thumb: '', url: '#' },
-  { title: 'Creature Battleground', desc: 'Set up your creature battleground and watch them fight!', thumb: '', url: '#' },
+  //{ title: 'Platformer', desc: 'Platform game with procedural day/night system background.', thumb: '', url: '#' },
+  //{ title: 'Creature Battleground', desc: 'Set up your creature battleground and watch them fight!', thumb: '', url: '#' },
   { title: 'Tower Defense', desc: "Simple tower defense game with 100 waves.", thumb: 'screenshots/tower-defense.png', url: 'examples/tower-defense' },
-  { title: 'Vehicle Controller', desc: 'Top-down vehicle controller with tire marks and gear changes.', thumb: '', url: '#' },
+  //{ title: 'Vehicle Controller', desc: 'Top-down vehicle controller with tire marks and gear changes.', thumb: '', url: '#' },
 ];
 
 const SCREENSHOTS = [
