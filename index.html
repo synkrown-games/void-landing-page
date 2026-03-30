@@ -1316,6 +1316,32 @@
     }
     .vlb-yt-btn:hover { background: #cc0000; color: #fff; }
 
+    #hero-banner {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 0;
+      height: calc(var(--nav-h) + 100vh);
+      overflow: hidden;
+      opacity: 0.05;
+      transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      pointer-events: none;
+    }
+
+    #hero-banner:hover {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    #hero-banner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
     /* ====================================================
        MOBILE / RESPONSIVE
        ==================================================== */
@@ -1391,7 +1417,9 @@
   </style>
 </head>
 <body>
-
+  <div id="hero-banner">
+    <img src="screenshots/banner.png" alt="VOID Banner" />
+  </div>
   <canvas id="bg-canvas" aria-hidden="true"></canvas>
 
   <!-- ============================================================
@@ -1474,6 +1502,20 @@
       <h2 class="section-title reveal reveal-delay-1">Gallery</h2>
       <p class="section-sub reveal reveal-delay-2">A look inside VOID</p>
       <div id="screenshots-grid" class="reveal reveal-delay-3"></div>
+    </section>
+
+    <div class="glow-sep"></div>
+    
+
+    <!-- ——— EXAMPLE GAMES ——— -->
+    <section id="games">
+      <p class="section-label reveal">// Examples</p>
+      <h2 class="section-title reveal reveal-delay-1">Made With VOID</h2>
+      <p class="section-sub reveal reveal-delay-2">
+        Click any game to play it in a new window.
+      </p>
+      <!-- Game cards injected by void.js buildExampleGames() -->
+      <div id="games-grid" class="reveal reveal-delay-3"></div>
     </section>
 
     <div class="glow-sep"></div>
@@ -1562,31 +1604,18 @@
 
     <!--hr class="divider" /-->
 
-    <!-- ——— EXAMPLE GAMES ——— -->
-    <section id="games">
-      <p class="section-label reveal">// Examples</p>
-      <h2 class="section-title reveal reveal-delay-1">Made With VOID</h2>
-      <p class="section-sub reveal reveal-delay-2">
-        Click any game to play it in a new window.
-      </p>
-      <!-- Game cards injected by void.js buildExampleGames() -->
-      <div id="games-grid" class="reveal reveal-delay-3"></div>
-    </section>
-
-    <div class="glow-sep"></div>
-
     <!-- ——— UPDATE LOG ——— -->
-    <section id="updates">
+    <!--section id="updates">
       <p class="section-label reveal">// Changelog</p>
       <h2 class="section-title reveal reveal-delay-1">Updates</h2>
       <p class="section-sub reveal reveal-delay-2">
         
       </p>
-      <!-- Log entries injected by void.js buildUpdateLog() -->
-      <div id="update-log" class="reveal reveal-delay-3"></div>
-    </section>
 
-    <hr class="divider" />
+      <div id="update-log" class="reveal reveal-delay-3"></div>
+    </section-->
+
+    <!--hr class="divider" /-->
 
     <!-- ——— DOWNLOAD ——— -->
     <section id="download">
