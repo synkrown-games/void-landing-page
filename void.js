@@ -50,9 +50,9 @@ const FEATURES = [
 ];
 
 const DOWNLOADS = [
-  { label: 'Download for Windows(COMING SOON)', href: 'https://voidengine.wasmer.app/', primary: true, note: 'v0.1.0-alpha · 64-bit' },
-  { label: 'Download for macOS(COMING SOON)', href: 'https://voidengine.wasmer.app/', primary: false, note: 'v0.1.0-alpha · Universal' },
-  { label: 'Download for Linux(COMING SOON)', href: 'https://voidengine.wasmer.app/', primary: false, note: 'v0.1.0-alpha · AppImage' },
+  { label: 'Download for Windows(COMING SOON)', href: 'https://void-engine.wasmer.app/', primary: true, note: 'v0.1.0-alpha · 64-bit' },
+  { label: 'Download for macOS(COMING SOON)', href: 'https://void-engine.wasmer.app/', primary: false, note: 'v0.1.0-alpha · Universal' },
+  { label: 'Download for Linux(COMING SOON)', href: 'https://void-engine.wasmer.app/', primary: false, note: 'v0.1.0-alpha · AppImage' },
   //{ label: 'View on GitHub',       href: '#', primary: false, note: 'Source code'              },
 ];
 
@@ -136,7 +136,7 @@ const ROADMAP = [
   },
 ];
 
-const EDITOR_URL = 'https://voidengine.wasmer.app/'; // ← replace with your real URL
+const EDITOR_URL = 'https://void-engine.wasmer.app/'; // ← replace with your real URL
 
 const ABOUT_PARAGRAPHS = [
   'VOID is an easy to use, very powerful game engine built for the web. Lightweight by design, powerful in practice — write once, run everywhere.',
