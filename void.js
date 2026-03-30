@@ -136,7 +136,7 @@ const ROADMAP = [
   },
 ];
 
-const EDITOR_URL = 'https://void-engine.wasmer.app/'; // ← replace with your real URL
+const EDITOR_URL = 'https://void-engine.wasmer.app/'; 
 
 const ABOUT_PARAGRAPHS = [
   'VOID is an easy to use, very powerful game engine built for the web. Lightweight by design, powerful in practice — write once, run everywhere.',
